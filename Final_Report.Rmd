@@ -2,41 +2,41 @@
 title: "Final Report"
 date: "December 6th, 2018"
 output: github_document
-always_allow_html: yes
+
 ---
 
-<br>
+
 
 #Analysis of a Longitudinal Study on Aging Conducted in Ireland 
 
 #### Diana Ballesteros (deg2163), Christopher Crowe (clc2229), Tanvi Jain (tj2383)
 
-<br>
 
-<b>Motivation:</b> 
-<br>
+
+Motivation: 
+
 This project aims to look at the effect of sociodemographic indicators on physical and mental health among a cohort of Irish residents aged 50+ years old.
 
-<b>Related work:</b> 
-<br>
+Related work:
+
 This project is a broad examination of the implications of aging on physical and mental health. The inspiration for this analysis was drawn from the group members research interests including depression, aging, and chronic diseases. The following link to a page from the American Psychological Association was used as a reference for the variables we chose to analyze. https://www.apa.org/helpcenter/aging-depression.aspx 
 
-<b>Questions:</b> 
-<br>
+Questions:
+
 
 * Is physical health associated with mental health?
 * Does loneliness change over time among widowed men? 
 * What is the proportion of various ICD-10 diseases among this population?
 
-<b>Evolution of questions:</b> 
-<br>
+Evolution of questions:
+
 As we created the graphs we decided to also explore variations according to sex (male and female) and different marital statuses (widowed, married, divorced, cohabitating, separated, and single). For some graphs, we also explored the change over waves 1, 2, and 3.
 
-<b>Evolution of methods:</b> 
-<br>
+Evolution of methods:
+
 In our initial proposal we wanted to look at `Quality of Life`. However, the nature of this variable seemed ambiguous to us so instead we looked at variables such as `self-rated mental health`, `self-rated physical health`, and `loneliness` as proxies for quality of life. We also planned to use a hexagonal heat map to visualize the relationship between physical and mental health, but according to the distribution of our data this map was not visually informative. Instead we used a geom_count to display the concentrations of data within a scatterplot.
 
-<b>Loading the necessary libraries:</b>
+Loading the necessary libraries:
 
 ```{r setup, message = FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -50,8 +50,8 @@ library(httr)
 select = dplyr::select
 ```
 
-<b>Instructions for importing the data:</b> 
-<br>
+Instructions for importing the data:
+
 Download the data from Google Drive to your local R environment (this requires you to sign into your Google account) then reference the data from a local path. The R console may provide you with a link to authenticate your Google account. If so, copy and paste this link into your browser and log into your Google account. After logging in, Google may successfully link to R and you can continue working in R as usual. However, after loggin in, Google may provide you with a authentication code. If so, copy and paste this code into your R console when prompted and continue working in R as usual.
 
 ```{r load_data_shiny, message = FALSE, eval = FALSE}
@@ -74,8 +74,8 @@ load("./37105-0001-Data.rda")
 load("./37106-0001-Data.rda")
 ```
 
-<b>Tidying the data:</b> 
-<br>
+Tidying the data:
+
 The following code creates a number of functions to clean variables that are used in our analyses. It also tidies the data and prepares dataframes to be used for visualizations.
 ```{r, warning = FALSE}
 
@@ -245,11 +245,11 @@ lone_data =
   select(-SEX.x, -CS006, -SEX)
 ```
 
-<b>Data source:</b> 
-<br>
+Data source:
+
 The data was obtained from The Irish Longitudinal Study on Ageing (TILDA) Waves 1, 2, and 3. Here is a link to the dataset https://www.icpsr.umich.edu/icpsrweb/ICPSR/series/726. To access information (e.g. codebooks) on this website, you will need to create a free account. We did not delete any participants from our dataset to ensure completeness of our code, in case a participant who is null right now responds in a future wave. The sample size for each wave (1, 2, 3) was n =`r nrow(wave_1_data)`, n = `r nrow(wave_2_data)`, and n = `r nrow(wave_3_data)`, respectively. Not all participants who were in Wave 1 were a part of Waves 2 and 3 (i.e. they were lost to follow up).
 
-<b>Exploratory analysis</b>
+Exploratory analysis
 
 The code below shows how we created visualizations in a Shiny dashboard. We used `shiny` to stratify the plots by various combinations of sex, marital status, and time. We provide select examples for each type of plot below. If you would like to view the full results of our exploratory visualizations and analyses, please refer to the Shiny Data Visualizations and Shiny Data Analysis tabs on our website.
 
@@ -368,10 +368,10 @@ icd_plot =
     y = "Burden of Disease (%)"
   ) + 
   theme_bw() +
-  theme(axis.text.x = element_text(angle = 65, size = 7)) + 
+  theme(axis.text.x = element_text(angle = 65, size = 7, hjust = 1)) + 
   theme(legend.position = "none") 
 
-ggplotly(icd_plot, tooltip = c("x", "y"))
+icd_plot
 ```
 
 * Spaghetti Plot - Trends in Loneliness Scores by Baseline Loneliness Scores:
@@ -457,7 +457,7 @@ lone_data = baseline_loneliness_0 %>%
     y = "UCLA Loneliness Score"
   ) 
   
-ggplotly(lone_data)
+lone_data
 ```
 
 
@@ -499,7 +499,7 @@ ggplotly(phys_ment_plot)
   theme_bw() +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 65, hjust = 1))
-ggplotly(phys_ment_plot)
+phys_ment_plot
 ```
 
 
@@ -542,7 +542,7 @@ Below are the results of the chi-squared test of independence.
 
 `r results`
 
-<b>Additional Anaylses</b>
+Additional Anaylses
 
 * Additional chi-squared tests of independence (stratified):
 
@@ -613,26 +613,26 @@ as.data.frame.matrix(results)
 ```
 
 
-<b>Discussion:</b>
+Discussion:
 
 * Graph 1: 
-<br>
+
 Our hypothesis for this plot was more broad in that we expected the largest burden of disease to come from chronic diseases, simply because the cohort is older and in Ireland, which may not have a high prevalence of infectious, or perinatal diseases and conditions. The bar graph specified that the 4 diseases with the highest proportion were circulatory system diseases, eye diseases, nutritional/metabolic diseases, and musculoskeletal system diseases. As predicted there were no incident cases of infectious diseases or perinatal conditions. Additionally, there were no cases of congenital malformations, ear diseases, or skin conditions. Interestingly, across sex, we noticed that the most prevalent disease among men was circulatory system diseases but among women it was nutritional/metabolic diseases.
 
 
 * Graph 2: 
-<br>
+
 Based on research suggesting that women are better equipped to rebuild social networks after the loss of a partner, we expected that loneliness scores would increase over time for widowed men more than widowed women. However, according to graph 2, this was not the case. Most widowed men tended to exhibit a decrease in loneliness scores compared to baseline (indicative of declines in feelings of loneliness), whereas widowed women stayed at relatively the same loneliness level across all waves with the exception of an an outlier at level 8 loneliness.
 
 
 * Graph 3: 
-<br>
+
 We anticipated that physical health and mental health would be correlated and from graph 3 we discovered that this was true. Those who felt they had better physical health also had better mental health and vice versa. We also found a larger concentration of older adults reporting `Very Good` or `Good` physical and mental health. This trend remained consistent across sex and over time. While this means that there was minimal improvement in physical and mental health over time, it also means there was a minimal decline in physical and mental health over time.
 
 * Preliminary chi-Squared test of independence: 
-<br>
+
 Since our graph depicted a correlation between self-rated mental health and physical health we anticipated an association. Our null hypothesis was that there is no association between self-rated mental health and physical health and the alternate hypothesis was that there is an association between self-rated mental health and physical health. We set alpha to 0.05 and calculated the chi-squared test statistic (4078.8) and p-value (0), which was significant. At the 5% level of significance, there is enough evidence to reject the null hypothesis and conclude that there is an association between mental health and physical health, which matches graph 1. 
 
 * Additional chi-squared tests of independence: 
-<br>
+
 Based on these results, we used `Shiny` to further stratify the analysis to explore the association between self-rated mental health and physical health within specific subsets of our study population. At the 5% level of significance, among married females in wave 1, there is enough evidence to reject the null hypothesis and conclude that there is an association between mental health and physical health.
