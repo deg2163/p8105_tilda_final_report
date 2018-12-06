@@ -5,41 +5,64 @@ output: github_document
 
 ---
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 59e4c837c86190e4433e4129d11ac0c3e503519a
 
-#Analysis of a Longitudinal Study on Aging Conducted in Ireland 
+# Analysis of a Longitudinal Study on Aging Conducted in Ireland 
 
 #### Diana Ballesteros (deg2163), Christopher Crowe (clc2229), Tanvi Jain (tj2383)
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 59e4c837c86190e4433e4129d11ac0c3e503519a
 Motivation: 
 
 This project aims to look at the effect of sociodemographic indicators on physical and mental health among a cohort of Irish residents aged 50+ years old.
 
+<<<<<<< HEAD
 Related work:
 
 This project is a broad examination of the implications of aging on physical and mental health. The inspiration for this analysis was drawn from the group members research interests including depression, aging, and chronic diseases. The following link to a page from the American Psychological Association was used as a reference for the variables we chose to analyze. https://www.apa.org/helpcenter/aging-depression.aspx 
 
 Questions:
+=======
+Related work: 
+
+This project is a broad examination of the implications of aging on physical and mental health. The inspiration for this analysis was drawn from the group members research interests including depression, aging, and chronic diseases. The following link to a page from the American Psychological Association was used as a reference for the variables we chose to analyze. https://www.apa.org/helpcenter/aging-depression.aspx 
+
+Questions: 
+>>>>>>> 59e4c837c86190e4433e4129d11ac0c3e503519a
 
 
 * Is physical health associated with mental health?
 * Does loneliness change over time among widowed men? 
 * What is the proportion of various ICD-10 diseases among this population?
 
+<<<<<<< HEAD
 Evolution of questions:
 
 As we created the graphs we decided to also explore variations according to sex (male and female) and different marital statuses (widowed, married, divorced, cohabitating, separated, and single). For some graphs, we also explored the change over waves 1, 2, and 3.
 
 Evolution of methods:
+=======
+Evolution of questions: 
+
+As we created the graphs we decided to also explore variations according to sex (male and female) and different marital statuses (widowed, married, divorced, cohabitating, separated, and single). For some graphs, we also explored the change over waves 1, 2, and 3.
+
+Evolution of methods: 
+>>>>>>> 59e4c837c86190e4433e4129d11ac0c3e503519a
 
 In our initial proposal we wanted to look at `Quality of Life`. However, the nature of this variable seemed ambiguous to us so instead we looked at variables such as `self-rated mental health`, `self-rated physical health`, and `loneliness` as proxies for quality of life. We also planned to use a hexagonal heat map to visualize the relationship between physical and mental health, but according to the distribution of our data this map was not visually informative. Instead we used a geom_count to display the concentrations of data within a scatterplot.
 
 Loading the necessary libraries:
 
 ```{r setup, message = FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+
+knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(plotly)
 library(MASS)
@@ -50,7 +73,11 @@ library(httr)
 select = dplyr::select
 ```
 
+<<<<<<< HEAD
 Instructions for importing the data:
+=======
+Instructions for importing the data: 
+>>>>>>> 59e4c837c86190e4433e4129d11ac0c3e503519a
 
 Download the data from Google Drive to your local R environment (this requires you to sign into your Google account) then reference the data from a local path. The R console may provide you with a link to authenticate your Google account. If so, copy and paste this link into your browser and log into your Google account. After logging in, Google may successfully link to R and you can continue working in R as usual. However, after loggin in, Google may provide you with a authentication code. If so, copy and paste this code into your R console when prompted and continue working in R as usual.
 
@@ -74,7 +101,11 @@ load("./37105-0001-Data.rda")
 load("./37106-0001-Data.rda")
 ```
 
+<<<<<<< HEAD
 Tidying the data:
+=======
+Tidying the data: 
+>>>>>>> 59e4c837c86190e4433e4129d11ac0c3e503519a
 
 The following code creates a number of functions to clean variables that are used in our analyses. It also tidies the data and prepares dataframes to be used for visualizations.
 ```{r, warning = FALSE}
@@ -245,7 +276,11 @@ lone_data =
   select(-SEX.x, -CS006, -SEX)
 ```
 
+<<<<<<< HEAD
 Data source:
+=======
+Data source: 
+>>>>>>> 59e4c837c86190e4433e4129d11ac0c3e503519a
 
 The data was obtained from The Irish Longitudinal Study on Ageing (TILDA) Waves 1, 2, and 3. Here is a link to the dataset https://www.icpsr.umich.edu/icpsrweb/ICPSR/series/726. To access information (e.g. codebooks) on this website, you will need to create a free account. We did not delete any participants from our dataset to ensure completeness of our code, in case a participant who is null right now responds in a future wave. The sample size for each wave (1, 2, 3) was n =`r nrow(wave_1_data)`, n = `r nrow(wave_2_data)`, and n = `r nrow(wave_3_data)`, respectively. Not all participants who were in Wave 1 were a part of Waves 2 and 3 (i.e. they were lost to follow up).
 
@@ -421,7 +456,7 @@ ggplotly(lone_data)
 
 * Example - Married males:
 
-```{r, warning = FALSE}
+```{r}
 for (i in 0:10) {
   
   data = lone_data %>% 
