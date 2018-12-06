@@ -1,7 +1,8 @@
 ---
 title: "Final Report"
 date: "December 6th, 2018"
-output: html_document
+output: github_document
+always_allow_html: yes
 ---
 
 <br>
