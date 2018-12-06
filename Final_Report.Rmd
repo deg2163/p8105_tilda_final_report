@@ -39,6 +39,7 @@ In our initial proposal we wanted to look at `Quality of Life`. However, the nat
 <b>Loading the necessary libraries:</b>
 
 ```{r setup, message = FALSE}
+
 knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(plotly)
