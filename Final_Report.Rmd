@@ -40,7 +40,7 @@ In our initial proposal we wanted to look at `Quality of Life`. However, the nat
 
 ```{r setup, message = FALSE}
 
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 library(tidyverse)
 library(plotly)
 library(MASS)
