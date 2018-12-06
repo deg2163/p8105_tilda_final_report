@@ -2,14 +2,11 @@
 title: "Final Report"
 date: "December 6th, 2018"
 output: github_document
-always_allow_html: yes
 ---
-
 
 # Analysis of a Longitudinal Study on Aging Conducted in Ireland 
 
 #### Diana Ballesteros (deg2163), Christopher Crowe (clc2229), Tanvi Jain (tj2383)
-
 
 Motivation: 
 
@@ -20,7 +17,6 @@ Related work:
 This project is a broad examination of the implications of aging on physical and mental health. The inspiration for this analysis was drawn from the group members research interests including depression, aging, and chronic diseases. The following link to a page from the American Psychological Association was used as a reference for the variables we chose to analyze. https://www.apa.org/helpcenter/aging-depression.aspx 
 
 Questions: 
-
 
 * Is physical health associated with mental health?
 * Does loneliness change over time among widowed men? 
@@ -325,7 +321,7 @@ ggplotly(icd_plot, tooltip = c("x", "y"))
 
 * Example - Married males:
 
-```{r}
+```{r message = FALSE}
 
 icd_data = overall_icd %>% 
   filter(sex == 'Male' & marital == 'Married') %>% 
@@ -367,10 +363,10 @@ icd_plot =
     y = "Burden of Disease (%)"
   ) + 
   theme_bw() +
-  theme(axis.text.x = element_text(angle = 65, size = 7)) + 
+  theme(axis.text.x = element_text(angle = 65, size = 7, hjust = 1)) + 
   theme(legend.position = "none") 
 
-ggplotly(icd_plot, tooltip = c("x", "y"))
+icd_plot
 ```
 
 * Spaghetti Plot - Trends in Loneliness Scores by Baseline Loneliness Scores:
@@ -456,7 +452,7 @@ lone_data = baseline_loneliness_0 %>%
     y = "UCLA Loneliness Score"
   ) 
   
-ggplotly(lone_data)
+lone_data
 ```
 
 
@@ -498,7 +494,8 @@ ggplotly(phys_ment_plot)
   theme_bw() +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 65, hjust = 1))
-ggplotly(phys_ment_plot)
+
+phys_ment_plot
 ```
 
 
