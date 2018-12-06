@@ -4,9 +4,13 @@ date: "December 6th, 2018"
 output: github_document
 ---
 
-# Analysis of a Longitudinal Study on Aging Conducted in Ireland 
+
+
+#Analysis of a Longitudinal Study on Aging Conducted in Ireland 
 
 #### Diana Ballesteros (deg2163), Christopher Crowe (clc2229), Tanvi Jain (tj2383)
+
+
 
 Motivation: 
 
@@ -17,6 +21,7 @@ Related work:
 This project is a broad examination of the implications of aging on physical and mental health. The inspiration for this analysis was drawn from the group members research interests including depression, aging, and chronic diseases. The following link to a page from the American Psychological Association was used as a reference for the variables we chose to analyze. https://www.apa.org/helpcenter/aging-depression.aspx 
 
 Questions: 
+
 
 * Is physical health associated with mental health?
 * Does loneliness change over time among widowed men? 
@@ -33,8 +38,7 @@ In our initial proposal we wanted to look at `Quality of Life`. However, the nat
 Loading the necessary libraries:
 
 ```{r setup, message = FALSE}
-
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 library(tidyverse)
 library(plotly)
 library(MASS)
@@ -49,16 +53,18 @@ Instructions for importing the data:
 
 Download the data from Google Drive to your local R environment (this requires you to sign into your Google account) then reference the data from a local path. The R console may provide you with a link to authenticate your Google account. If so, copy and paste this link into your browser and log into your Google account. After logging in, Google may successfully link to R and you can continue working in R as usual. However, after loggin in, Google may provide you with a authentication code. If so, copy and paste this code into your R console when prompted and continue working in R as usual.
 
-```{r load_data_shiny, message = FALSE, eval = FALSE}
+```{r load_data, eval = FALSE, message = FALSE}
 
 ## Save the data within the shiny folder for use in shiny
 drive_download(as_id("https://drive.google.com/open?id=12qBx-FbPIKAA_aQr5JoMR9ehvpmRrbWN"), path = "./shiny/34315-0001-Data.rda", overwrite = TRUE)
 drive_download(as_id("https://drive.google.com/open?id=1BLislRpc8OTvtYEw8118WKKLkVuHhV6C"), path = "./shiny/37105-0001-Data.rda", overwrite = TRUE)
 drive_download(as_id("https://drive.google.com/open?id=1gj53tdb5RHhX5NPDv2eyBqfgEBPAc42G"), path = "./shiny/37106-0001-Data.rda", overwrite = TRUE)
+ 
+
+
 ```
 
-```{r load_data_report, message = FALSE}
-
+```{r}
 ## Save the data outside the shiny folder for use elsewhere in the website
 drive_download(as_id("https://drive.google.com/open?id=12qBx-FbPIKAA_aQr5JoMR9ehvpmRrbWN"), path = "./34315-0001-Data.rda", overwrite = TRUE)
 drive_download(as_id("https://drive.google.com/open?id=1BLislRpc8OTvtYEw8118WKKLkVuHhV6C"), path = "./37105-0001-Data.rda", overwrite = TRUE)
@@ -68,6 +74,7 @@ load("./34315-0001-Data.rda")
 load("./37105-0001-Data.rda")
 load("./37106-0001-Data.rda")
 ```
+
 
 Tidying the data: 
 
@@ -317,24 +324,11 @@ icd_plot =
 
 ggplotly(icd_plot, tooltip = c("x", "y"))
 })
-
-sex_choice = phys_ment_lone %>% distinct(sex) %>% pull()
-marital_choice = phys_ment_lone %>% distinct(marital) %>% pull()
-wave_choice = phys_ment_lone %>% distinct(wave) %>% pull()
-radioButtons("wave_choice", label = h3("Choose wave"),
-    choices = wave_choice,
-    selected = 1)
-radioButtons("sex_choice", label = h3("Choose sex"),
-    choices = sex_choice, 
-    selected = "Male")
-radioButtons("marital_choice", label = h3("Choose marital status"),
-    choices = marital_choice, 
-    selected = "Married")
 ```
 
 * Example - Married males:
 
-```{r message = FALSE}
+```{r}
 
 icd_data = overall_icd %>% 
   filter(sex == 'Male' & marital == 'Married') %>% 
@@ -376,7 +370,7 @@ icd_plot =
     y = "Burden of Disease (%)"
   ) + 
   theme_bw() +
-  theme(axis.text.x = element_text(angle = 65, size = 7, hjust = 1)) + 
+  theme(axis.text.x = element_text(angle = 65, size = 7)) + 
   theme(legend.position = "none") 
 
 icd_plot
@@ -429,7 +423,7 @@ ggplotly(lone_data)
 
 * Example - Married males:
 
-```{r message = FALSE}
+```{r, warning = FALSE}
 for (i in 0:10) {
   
   data = lone_data %>% 
@@ -448,8 +442,8 @@ lone_data = baseline_loneliness_0 %>%
   ggplot(aes(x = wave, y = loneliness_value)) +
   geom_smooth(se = FALSE, color = "#47FF00") +
   geom_smooth(data = baseline_loneliness_1, aes(x = wave, y = loneliness_value), se = FALSE, color = "#6AFF00") +
-  geom_smooth(data = baseline_loneliness_2, aes(x = wave, y = loneliness_value, color = loneliness_value), se = FALSE, color = "#8DFF00") +
-  geom_smooth(data = baseline_loneliness_3, aes(x = wave, y = loneliness_value, color = loneliness_value), se = FALSE, color = "#B0FF00") +
+  geom_smooth(data = baseline_loneliness_2, aes(x = wave, y = loneliness_value), se = FALSE, color = "#8DFF00") +
+  geom_smooth(data = baseline_loneliness_3, aes(x = wave, y = loneliness_value), se = FALSE, color = "#B0FF00") +
   geom_smooth(data = baseline_loneliness_4, aes(x = wave, y = loneliness_value), se = FALSE, color = "#D4FF00") +
   geom_smooth(data = baseline_loneliness_5, aes(x = wave, y = loneliness_value), se = FALSE, color = "#F7FF00") +
   geom_smooth(data = baseline_loneliness_6, aes(x = wave, y = loneliness_value), se = FALSE, color = "#FFE400") +

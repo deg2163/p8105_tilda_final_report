@@ -90,7 +90,7 @@ We started by renaming the loneliness variables from each wave so that we could 
     ## parametric, : neighborhood radius 2.01
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-    ## parametric, : reciprocal condition number 2.046e-15
+    ## parametric, : reciprocal condition number 2.046e-015
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
     ## parametric, : There are other near singularities as well. 4.0401
@@ -102,7 +102,7 @@ We started by renaming the loneliness variables from each wave so that we could 
     ## parametric, : neighborhood radius 2.01
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-    ## parametric, : reciprocal condition number 1.1939e-15
+    ## parametric, : reciprocal condition number 1.1939e-015
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
     ## parametric, : There are other near singularities as well. 4.0401
@@ -114,7 +114,7 @@ We started by renaming the loneliness variables from each wave so that we could 
     ## parametric, : neighborhood radius 2.01
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-    ## parametric, : reciprocal condition number 1.5555e-16
+    ## parametric, : reciprocal condition number 1.5555e-016
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
     ## parametric, : There are other near singularities as well. 4.0401
@@ -126,7 +126,7 @@ We started by renaming the loneliness variables from each wave so that we could 
     ## parametric, : neighborhood radius 2.01
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-    ## parametric, : reciprocal condition number 5.9131e-16
+    ## parametric, : reciprocal condition number 5.9131e-016
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
     ## parametric, : There are other near singularities as well. 4.0401
@@ -138,7 +138,7 @@ We started by renaming the loneliness variables from each wave so that we could 
     ## parametric, : neighborhood radius 2.01
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-    ## parametric, : reciprocal condition number 7.0409e-17
+    ## parametric, : reciprocal condition number 7.0409e-017
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
     ## parametric, : There are other near singularities as well. 4.0401
@@ -150,7 +150,7 @@ We started by renaming the loneliness variables from each wave so that we could 
     ## parametric, : neighborhood radius 2.01
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-    ## parametric, : reciprocal condition number 1.0173e-16
+    ## parametric, : reciprocal condition number 1.0173e-016
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
     ## parametric, : There are other near singularities as well. 4.0401
@@ -162,7 +162,7 @@ We started by renaming the loneliness variables from each wave so that we could 
     ## parametric, : neighborhood radius 2.01
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-    ## parametric, : reciprocal condition number 7.4014e-17
+    ## parametric, : reciprocal condition number 7.4014e-017
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
     ## parametric, : There are other near singularities as well. 4.0401
@@ -186,7 +186,7 @@ We started by renaming the loneliness variables from each wave so that we could 
     ## parametric, : neighborhood radius 2.01
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
-    ## parametric, : reciprocal condition number 5.2085e-17
+    ## parametric, : reciprocal condition number 5.2085e-017
 
     ## Warning in simpleLoess(y, x, w, span, degree = degree, parametric =
     ## parametric, : There are other near singularities as well. 4.0401
