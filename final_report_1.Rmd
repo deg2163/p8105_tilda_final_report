@@ -362,7 +362,7 @@ icd_plot =
     y = "Burden of Disease (%)"
   ) + 
   theme_bw() +
-  theme(axis.text.x = element_text(angle = 65, size = 7)) + 
+  theme(axis.text.x = element_text(angle = 65, size = 7, hjust = 1)) + 
   theme(legend.position = "none") 
 
 icd_plot
