@@ -398,8 +398,8 @@ lone_data = baseline_loneliness_0 %>%
   ggplot(aes(x = wave, y = loneliness_value)) +
   geom_smooth(se = FALSE, color = "#47FF00") +
   geom_smooth(data = baseline_loneliness_1, aes(x = wave, y = loneliness_value), se = FALSE, color = "#6AFF00") +
-  geom_smooth(data = baseline_loneliness_2, aes(x = wave, y = loneliness_value, color = loneliness_value), se = FALSE, color = "#8DFF00") +
-  geom_smooth(data = baseline_loneliness_3, aes(x = wave, y = loneliness_value, color = loneliness_value), se = FALSE, color = "#B0FF00") +
+  geom_smooth(data = baseline_loneliness_2, aes(x = wave, y = loneliness_value), se = FALSE, color = "#8DFF00") +
+  geom_smooth(data = baseline_loneliness_3, aes(x = wave, y = loneliness_value), se = FALSE, color = "#B0FF00") +
   geom_smooth(data = baseline_loneliness_4, aes(x = wave, y = loneliness_value), se = FALSE, color = "#D4FF00") +
   geom_smooth(data = baseline_loneliness_5, aes(x = wave, y = loneliness_value), se = FALSE, color = "#F7FF00") +
   geom_smooth(data = baseline_loneliness_6, aes(x = wave, y = loneliness_value), se = FALSE, color = "#FFE400") +
