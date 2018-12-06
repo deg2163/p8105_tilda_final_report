@@ -2,6 +2,7 @@
 title: "Final Report"
 date: "December 6th, 2018"
 output: github_document
+<<<<<<< HEAD:Final_Report.Rmd
 
 ---
 
@@ -10,15 +11,22 @@ output: github_document
 =======
 >>>>>>> 59e4c837c86190e4433e4129d11ac0c3e503519a
 
+=======
+---
+
+>>>>>>> 20d185c57a3bec14ebec36adb0f2c16d6cb0ea3d:Final_Report_1.Rmd
 # Analysis of a Longitudinal Study on Aging Conducted in Ireland 
 
 #### Diana Ballesteros (deg2163), Christopher Crowe (clc2229), Tanvi Jain (tj2383)
 
+<<<<<<< HEAD:Final_Report.Rmd
 
 <<<<<<< HEAD
 
 =======
 >>>>>>> 59e4c837c86190e4433e4129d11ac0c3e503519a
+=======
+>>>>>>> 20d185c57a3bec14ebec36adb0f2c16d6cb0ea3d:Final_Report_1.Rmd
 Motivation: 
 
 This project aims to look at the effect of sociodemographic indicators on physical and mental health among a cohort of Irish residents aged 50+ years old.
@@ -36,7 +44,6 @@ This project is a broad examination of the implications of aging on physical and
 
 Questions: 
 >>>>>>> 59e4c837c86190e4433e4129d11ac0c3e503519a
-
 
 * Is physical health associated with mental health?
 * Does loneliness change over time among widowed men? 
@@ -361,7 +368,7 @@ ggplotly(icd_plot, tooltip = c("x", "y"))
 
 * Example - Married males:
 
-```{r}
+```{r message = FALSE}
 
 icd_data = overall_icd %>% 
   filter(sex == 'Male' & marital == 'Married') %>% 
@@ -534,6 +541,10 @@ ggplotly(phys_ment_plot)
   theme_bw() +
   theme(legend.position = "none",
         axis.text.x = element_text(angle = 65, hjust = 1))
+<<<<<<< HEAD:Final_Report.Rmd
+=======
+
+>>>>>>> 20d185c57a3bec14ebec36adb0f2c16d6cb0ea3d:Final_Report_1.Rmd
 phys_ment_plot
 ```
 
